@@ -12,9 +12,14 @@ typedef struct Counters{
 
 void showOptions(void);
 void set_utility_values(void);
+void SetColorGreen(void);
+void SetColorPurple(void);
+void SetColorCyan(void);
+void ResetColor(void);
+void SetColorYellow(void);
+void SetColorRed(void);
 
 int main (){
-
     showOptions();
 
    
@@ -42,6 +47,7 @@ int main (){
 }
 
 void set_utility_values(void){
+    printf("\033[0;31m");
     printf("////////////////////////////////////////////////////////////////////////\n");
     printf("////////////////////////////////////////////////////////////////////////\n\n");
     printf("Показник Вода:\n");
@@ -49,10 +55,34 @@ void set_utility_values(void){
 }
 
 void showOptions(void){
-    printf("**************************************************************************************\n");
-    printf("**************************************************************************************\n\n");
-    printf("                           MENU:\n\n");
+    ResetColor();
+    SetColorYellow();
+    printf("***********************************************************************************************************************\n");
+    printf("***********************************************************************************************************************\n");
+    printf("***********************************************************************************************************************\n");
+    SetColorGreen();
+    printf("                                                 MENU:\n\n");
     printf("Подивитись Показники Попередній Місяць натиснути - 1\n");
     printf("Записати Показники натиснути - 2\n");
     printf("Записати Оплату Показників натиснути - 3\n");
+    ResetColor();
+}
+
+void SetColorGreen(void){
+    printf("\033[0;32m");
+}
+void SetColorPurple(void){
+    printf("\033[0;35m");
+}
+void SetColorCyan(void){
+    printf("\033[0;36m");
+}
+void SetColorYellow(void){
+    printf("\033[0;33m");
+}
+void SetColorRed(void){
+    printf("\033[0;31m");
+}
+void ResetColor(void){
+    printf("\033[0m");
 }
