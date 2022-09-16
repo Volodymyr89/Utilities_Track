@@ -32,7 +32,7 @@ int main (){
             /* code */
             break;
         case 2:
-            /* code */
+            set_counters_all();
             break;
         case 3:
             /* code */
@@ -62,14 +62,22 @@ void showOptions(void){
     printf("***********************************************************************************************************************\n");
     SetColorGreen();
     printf("                                                 MENU:\n\n");
-    printf("Подивитись Показники Попередній Місяць натиснути - 1\n");
+    printf("Подивитись Показники/Оплату Попередній Місяць натиснути - 1\n");
     printf("Записати Показники натиснути - 2\n");
     printf("Записати Оплату Показників натиснути - 3\n");
     ResetColor();
 }
 
+void set_counters_all(){
+
+printf("Ввести значення Вода:\n");
+
+printf("Ввести значення Вода розподіл:\n");
+
+}
+
 void SetColorGreen(void){
-    printf("\033[0;32m");
+    printf("\033[1;32m");
 }
 void SetColorPurple(void){
     printf("\033[0;35m");
