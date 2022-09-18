@@ -27,7 +27,6 @@ void set_utility_values(void){
 void set_counters_all(Counters_t *Counters){
     FILE *fileptr=NULL;
     Counters =(Counters_t *)malloc(sizeof(Counters_t));
-    char *datatowrite[50];
     SetColorPurple();
     printf("Ввести значення Вода:\n");
     scanf("%f", &(Counters->counterWater));
@@ -44,9 +43,9 @@ void set_counters_all(Counters_t *Counters){
 
     fileptr = fopen( "C:/Learn_C/Utilities/Utilities_Track/Utilities_Data/File.txt", "r+");
     if (fileptr != NULL){
-      datatowrite[4] = "Вода\n";
-      fwrite(datatowrite, sizeof(datatowrite), 1, fileptr);
-
+      
+      fprintf(fileptr, "%s%d%s%d", "Вода\n", Counters->counterWater, "Вода розподіл\n", Counters->counterWaterDistibution);
+      
       fclose(fileptr);
       printf("*********************************** Все, записали ********************************************\n");
     }
