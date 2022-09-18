@@ -1,4 +1,5 @@
 #include "Lib.h"
+#include "malloc.h"
 
 void set_utility_values(void){
     printf("\033[0;31m");
@@ -24,22 +25,35 @@ void set_utility_values(void){
 }
 
 void set_counters_all(Counters_t *Counters){
-    Counters_t *ptr_CNT;
-
+    FILE *fileptr=NULL;
+    Counters =(Counters_t *)malloc(sizeof(Counters_t));
+    char *datatowrite[50];
     SetColorPurple();
     printf("Ввести значення Вода:\n");
     scanf("%f", &(Counters->counterWater));
     printf("Ввести значення Вода розподіл:\n");
-    scanf("%f", &Counters->counterWaterDistibution);
+    scanf("%f", &(Counters->counterWaterDistibution));
     printf("Ввести значення Газ:\n");
-    scanf("%f", &Counters->counterGas);
+    scanf("%f", &(Counters->counterGas));
     printf("Ввести значення Газ розподіл:\n");
-    scanf("%f", &Counters->counterGasDistibution);
+    scanf("%f", &(Counters->counterGasDistibution));
     printf("Ввести значення Електрика:\n");
-    scanf("%f", &Counters->counterElectrisity);
+    scanf("%f", &(Counters->counterElectrisity));
     printf("Ввести значення СофіЇвка:\n");
-    scanf("%f", &Counters->counterSofiivka);
-    printf("***********************************Все, записали********************************************\n");
+    scanf("%f", &(Counters->counterSofiivka));
+
+    fileptr = fopen( "C:/Learn_C/Utilities/Utilities_Track/Utilities_Data/File.txt", "r+");
+    if (fileptr != NULL){
+      datatowrite[4] = "Вода\n";
+      fwrite(datatowrite, sizeof(datatowrite), 1, fileptr);
+
+      fclose(fileptr);
+      printf("*********************************** Все, записали ********************************************\n");
+    }
+    else{
+        printf("Неможливо створити файл!!!\n");
+    }
+    free(Counters);
     ResetColor();
 }
 
