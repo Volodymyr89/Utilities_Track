@@ -38,7 +38,7 @@ void set_counters_all(void){
     FILE *fileptr=NULL;
     
     SetColorPurple();
-    printf("Ввести місяць і рік:\n");
+    printf("Ввести місяць і рік за які вносятся покази:\n");
     scanf("%f", &(Counters.month_year));
     printf("Ввести значення Вода:\n");
     scanf("%f", &(Counters.counterWater));
@@ -54,8 +54,12 @@ void set_counters_all(void){
     scanf("%f", &(Counters.counterSofiivka));
 
     fileptr = fopen( "C:/Learn_C/Utilities/Utilities_Track/Utilities_Data/File.txt", "r+");
+    int c = getc(fileptr);
     if (fileptr != NULL){
-      fprintf(fileptr, "%2.4f\n", Counters.month_year);
+        while(c!=EOF){
+            c = getc(fileptr);
+        }
+      fprintf(fileptr, "%.4f\n", Counters.month_year);
       fprintf(fileptr, "%.1f%.1f%.1f%.1f%.1f%.1f\n", Counters.counterWater, Counters.counterWaterDistibution, Counters.counterGas, Counters.counterGasDistibution, Counters.counterElectrisity, Counters.counterSofiivka);
       
       fclose(fileptr);
