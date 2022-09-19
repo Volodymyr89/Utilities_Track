@@ -17,6 +17,8 @@ void SetColorCyan(void);
 void ResetColor(void);
 void SetColorYellow(void);
 void SetColorRed(void);
+void set_bill_all(void);
+void show_counters(void);
 
 #ifdef __cplusplus
 }

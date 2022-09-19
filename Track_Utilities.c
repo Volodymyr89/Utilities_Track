@@ -6,9 +6,9 @@
 uint8_t choise;
 
 int main (){
-menu();
-    while(1){
 
+    while(1){
+        menu();
         scanf("%d", &choise);
     //if(choise != '')
         switch (choise)
@@ -20,8 +20,11 @@ menu();
            set_counters_all();
             break;
         case 3:
-            /* code */
-            break;    
+            set_bill_all();
+            break;
+        case 4:
+            show_counters();
+            break;  
         default:
             break;
         }
