@@ -68,7 +68,6 @@ void set_counters_all(void){
     ResetColor();
 }
 
-
 void SetColorGreen(void){
     printf("\033[1;32m");
 }
