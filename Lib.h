@@ -8,18 +8,9 @@ extern "C" {
 #include <stdint.h>
 #include <stdio.h>
 
-typedef struct Counters{
-    float counterWater;
-    float counterWaterDistibution;
-    float counterGas;
-    float counterGasDistibution;
-    float counterElectrisity;
-    float counterSofiivka;
-}Counters_t;
-
 void menu(void);
 void set_utility_values(void);
-void set_counters_all(Counters_t *Counters);
+void set_counters_all(void);
 void SetColorGreen(void);
 void SetColorPurple(void);
 void SetColorCyan(void);

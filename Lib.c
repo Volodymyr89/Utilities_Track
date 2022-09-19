@@ -24,35 +24,47 @@ void set_utility_values(void){
     ResetColor();
 }
 
-void set_counters_all(Counters_t *Counters){
+void set_counters_all(void){
+    typedef struct Counters{
+    float month_year;
+    float counterWater;
+    float counterWaterDistibution;
+    float counterGas;
+    float counterGasDistibution;
+    float counterElectrisity;
+    float counterSofiivka;
+}Counters_t;
+    Counters_t Counters;
     FILE *fileptr=NULL;
-    Counters =(Counters_t *)malloc(sizeof(Counters_t));
+    
     SetColorPurple();
+    printf("Ввести місяць і рік:\n");
+    scanf("%f", &(Counters.month_year));
     printf("Ввести значення Вода:\n");
-    scanf("%f", &(Counters->counterWater));
+    scanf("%f", &(Counters.counterWater));
     printf("Ввести значення Вода розподіл:\n");
-    scanf("%f", &(Counters->counterWaterDistibution));
+    scanf("%f", &(Counters.counterWaterDistibution));
     printf("Ввести значення Газ:\n");
-    scanf("%f", &(Counters->counterGas));
+    scanf("%f", &(Counters.counterGas));
     printf("Ввести значення Газ розподіл:\n");
-    scanf("%f", &(Counters->counterGasDistibution));
+    scanf("%f", &(Counters.counterGasDistibution));
     printf("Ввести значення Електрика:\n");
-    scanf("%f", &(Counters->counterElectrisity));
+    scanf("%f", &(Counters.counterElectrisity));
     printf("Ввести значення СофіЇвка:\n");
-    scanf("%f", &(Counters->counterSofiivka));
+    scanf("%f", &(Counters.counterSofiivka));
 
     fileptr = fopen( "C:/Learn_C/Utilities/Utilities_Track/Utilities_Data/File.txt", "r+");
     if (fileptr != NULL){
-      
-      fprintf(fileptr, "%s%d%s%d", "Вода\n", Counters->counterWater, "Вода розподіл\n", Counters->counterWaterDistibution);
+      fprintf(fileptr, "%f\n", Counters.month_year);
+      fprintf(fileptr, "%f%f%f", Counters.counterWater, Counters.counterWaterDistibution);
       
       fclose(fileptr);
+      SetColorYellow();
       printf("*********************************** Все, записали ********************************************\n");
     }
     else{
         printf("Неможливо створити файл!!!\n");
     }
-    free(Counters);
     ResetColor();
 }
 
