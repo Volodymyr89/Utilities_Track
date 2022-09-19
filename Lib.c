@@ -56,7 +56,7 @@ void set_counters_all(void){
     fileptr = fopen( "C:/Learn_C/Utilities/Utilities_Track/Utilities_Data/File.txt", "r+");
     if (fileptr != NULL){
       fprintf(fileptr, "%f\n", Counters.month_year);
-      fprintf(fileptr, "%f%f%f", Counters.counterWater, Counters.counterWaterDistibution);
+      fprintf(fileptr, "%f%f%f%f%f%f", Counters.counterWater, Counters.counterWaterDistibution, Counters.counterGas, Counters.counterGasDistibution, Counters.counterElectrisity, Counters.counterSofiivka);
       
       fclose(fileptr);
       SetColorYellow();
